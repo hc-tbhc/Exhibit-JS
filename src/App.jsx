@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router";
 import SearchPage from "./components/SearchPage";
 import SavedItemsPage from "./components/SavedItems";
 import "./App.css";
+import ItemPage from "./components/ItemPage";
 
-const App = () => {
+function App() {
   const [savedItems, setSavedItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -28,7 +29,6 @@ const App = () => {
           </Link>
         </h1>
         <nav>
-          <Link to="/">Search</Link>
           <Link to="/saved">Saved Items</Link>
         </nav>
       </header>
@@ -48,9 +48,12 @@ const App = () => {
           />
           <Route
             path="/saved"
-            element={
-              <SavedItemsPage items={savedItems} onRemove={removeSavedItem} />
+            element={<SavedItemsPage items={savedItems} onRemove={removeSavedItem} />
             }
+          />
+          <Route
+            path="item"
+            element= {<ItemPage />}
           />
         </Routes>
       </main>

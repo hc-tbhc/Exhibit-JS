@@ -33,7 +33,7 @@ function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResult
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
-    fetchItems(searchQuery, newFilters); // Apply filters to the current query
+    fetchItems(searchQuery, newFilters); // Apply filter`s to the current query
   };
 
   return (

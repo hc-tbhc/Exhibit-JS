@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SearchForm ({ onSearch, onFilterChange, initialQuery = "", initialFilters = {} }) {
+function SearchForm({ onSearch, onFilterChange, initialQuery = "", initialFilters = {} }) {
   const [query, setQuery] = useState(initialQuery);
   const [filters, setFilters] = useState(initialFilters);
 
