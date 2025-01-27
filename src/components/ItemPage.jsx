@@ -1,62 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router";
-// import ""
+import { useLocation } from "react-router";
+import img_not_found from "../assets/img-not-found.jpg";
 
 function ItemPage() {
-  const { id } = useParams();
-  const [item, setItem] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { state } = useLocation();
+  const { item } = state || {};
   
-  console.log(id);
-
-  useEffect(() => {
-    const fetchItem = async () => {
-      try {
-        const response = await fetch(
-          `https://collection.sciencemuseumgroup.org.uk/objects/${id}`
-        );
-        const data = await response.json();
-        setItem(data.data);
-      } catch (err) {
-        setError("Error fetching item details.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchItem();
-}, [id]);
-
-  if (loading) {
-    return <div className="loading">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
-
   if (!item) {
-    return <div className="error">Item not found</div>;
+    return <div>Item not available</div>;
   }
+
+  console.log(item)
+
+  const name =
+    typeof item.attributes.summary.title === "string"
+      ? item.attributes.summary.title
+      : "Name not found";
+  
+  const description =
+    typeof item.attributes.description[0]?.value === "string"
+      ? item.attributes.description[0].value
+      : "Description not found";
+
+  const thumbnail = item.attributes?.multimedia?.[0]?.["@processed"]?.large?.location;
 
   return (
-    <div className="item-page">
-      <h2>{item.attributes.summary.title}</h2>
-      {console.log()}
-      {item.attributes.multimedia?.[0]?.["@processed"]?.large_thumbnail?.location ? (
-        <img
-          className="item-image"
-          src={item.attributes?.multimedia?.[0]?.["@processed"]?.large_thumbnail?.location}
-          alt={item.attributes.summary.title || "Item Image"}
-        />
-      ) : (
-        <div className="item-placeholder">No Image Available</div>
-      )}
-      <p>{item.attributes.description[0].value || "No description available."}</p>
-      <Link to="/" className="back-button">Back to Search</Link>
+    <div>
+        {thumbnail ? (
+          <img
+            src={"https://coimages.sciencemuseumgroup.org.uk/" + thumbnail}
+            alt={name}
+          />
+        ) : (
+          <img src={img_not_found} alt="No image found" />
+        )}
+        <h3>{name}</h3>
+      <p>{description}</p>
     </div>
   );
-};
+}
 
 export default ItemPage;

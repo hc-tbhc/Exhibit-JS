@@ -6,7 +6,7 @@ function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResult
   const [filters, setFilters] = useState({});
 
   const fetchItems = async (query, filters) => {
-    // Determine the filter path
+    console.log(filters)
     const filterPath = filters.type ? `/${filters.type}` : "";
     const url = `https://collection.sciencemuseumgroup.org.uk/search${filterPath}?q=${encodeURIComponent(query)}`;
 
@@ -33,7 +33,7 @@ function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResult
 
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
-    fetchItems(searchQuery, newFilters); // Apply filter`s to the current query
+    fetchItems(searchQuery, newFilters);
   };
 
   return (

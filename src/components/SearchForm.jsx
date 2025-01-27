@@ -6,7 +6,7 @@ function SearchForm({ onSearch, onFilterChange, initialQuery = "", initialFilter
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(query); // Trigger a search with the current query
+    onSearch(query);
   };
 
   const handleFilterChange = (e) => {
@@ -23,18 +23,19 @@ function SearchForm({ onSearch, onFilterChange, initialQuery = "", initialFilter
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          className="search-input"
         //   placeholder="Search the collection..."
         />
-        <button type="submit">Search</button>
+        {/* <button type="submit">Search</button> */}
       </form>
       <form className="filter-form">
         <label>
           Type:
           <select name="type" value={filters.type || ""} onChange={handleFilterChange}>
             <option value="">All</option>
-            <option value="object">People</option>
-            <option value="archive">Objects</option>
-            <option value="photograph">Documents</option>
+            <option value="People">People</option>
+            <option value="Objects">Objects</option>
+            <option value="Documents">Documents</option>
           </select>
         </label>
       </form>

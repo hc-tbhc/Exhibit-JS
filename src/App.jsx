@@ -51,10 +51,7 @@ function App() {
             element={<SavedItemsPage items={savedItems} onRemove={removeSavedItem} />
             }
           />
-          <Route
-            path="item"
-            element= {<ItemPage />}
-          />
+          <Route path="/item/:id" element={<ItemPage />} />
         </Routes>
       </main>
     </Router>
