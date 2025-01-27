@@ -24,7 +24,7 @@ function ItemPage() {
   const thumbnail = item.attributes?.multimedia?.[0]?.["@processed"]?.large?.location;
 
   return (
-    <div>
+    <div className="item-page">
         {thumbnail ? (
           <img
             src={"https://coimages.sciencemuseumgroup.org.uk/" + thumbnail}

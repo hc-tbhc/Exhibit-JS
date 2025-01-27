@@ -4,20 +4,28 @@ import ItemsList from "../components/ItemsList";
 
 function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResults, onSave,}) {
   const [filters, setFilters] = useState({});
-
+  
+  
   const fetchItems = async (query, filters) => {
-    console.log(filters)
-    const filterPath = filters.type ? `/${filters.type}` : "";
-    const url = `https://collection.sciencemuseumgroup.org.uk/search${filterPath}?q=${encodeURIComponent(query)}`;
-
+    const url = `https://collection.sciencemuseumgroup.org.uk/search?q=${encodeURIComponent(query)}`;
+  
     try {
       const response = await fetch(url, {
         headers: { Accept: "application/vnd.api+json" },
       });
-
+  
       if (response.ok) {
         const data = await response.json();
-        setSearchResults(data.data || []);
+        let items = data.data || [];
+  
+        // console.log("API Response:", items); // Debugging
+  
+        // If a type is selected and it's not empty, filter items
+        if (filters.type && filters.type !== "") {
+          items = items.filter((item) => item.type?.toLowerCase() === filters.type.toLowerCase());
+        }
+  
+        setSearchResults(items);
       } else {
         console.error("Error in response:", response.status, response.statusText);
       }
@@ -25,7 +33,7 @@ function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResult
       console.error("Error fetching data:", error);
     }
   };
-
+  
   const handleSearch = (query) => {
     setSearchQuery(query);
     fetchItems(query, filters);
