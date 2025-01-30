@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import img_not_found from "../assets/img-not-found.jpg";
+import '../ItemPage.css' 
 
 function ItemPage() {
   const { state } = useLocation();
@@ -8,8 +9,6 @@ function ItemPage() {
   if (!item) {
     return <div>Item not available</div>;
   }
-
-  console.log(item)
 
   const name =
     typeof item.attributes.summary.title === "string"
@@ -20,6 +19,16 @@ function ItemPage() {
     typeof item.attributes.description[0]?.value === "string"
       ? item.attributes.description[0].value
       : "Description not found";
+
+  const maker =
+    typeof item.attributes.creation?.maker?.[0].summary.title === "string"
+      ? item.attributes.creation?.maker[0].summary.title
+      : null;
+  
+  const credit = 
+    typeof item.attributes.legal.credit === "string"
+    ? item.attributes.legal.credit
+    : null;
 
   const thumbnail = item.attributes?.multimedia?.[0]?.["@processed"]?.large?.location;
 
@@ -35,6 +44,8 @@ function ItemPage() {
         )}
         <h3>{name}</h3>
       <p>{description}</p>
+      <p>{maker}</p>
+      <p>Credit: {credit}</p>
     </div>
   );
 }

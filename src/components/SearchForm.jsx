@@ -24,20 +24,16 @@ function SearchForm({ onSearch, onFilterChange, initialQuery = "", initialFilter
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="search-input"
-        //   placeholder="Search the collection..."
+          placeholder="Search the collection..."
         />
-        {/* <button type="submit">Search</button> */}
       </form>
       <form className="filter-form">
-        <label>
-          Type:
           <select name="type" value={filters.type || ""} onChange={handleFilterChange}>
             <option value="">All</option>
             <option value="People">People</option>
             <option value="Objects">Objects</option>
             <option value="Documents">Documents</option>
           </select>
-        </label>
       </form>
     </div>
   );

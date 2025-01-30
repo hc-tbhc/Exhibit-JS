@@ -24,8 +24,8 @@ function ItemCard({ item, onSave }) {
       ? item.attributes.summary.title
       : "Name not found";
   const description =
-    typeof item.attributes.description[0]?.value === "string"
-      ? item.attributes.description[0].value
+    typeof item.attributes.description?.[0]?.value === "string"
+      ? item.attributes.description?.[0].value
       : "Description not found";
 
   return (
@@ -41,9 +41,9 @@ function ItemCard({ item, onSave }) {
           <img className="item-thumbnail" src={img_not_found} alt="No image found" />
         )}
         <h3>{name}</h3>
-      </Link>
       <p>{description}</p>
       <button onClick={() => onSave(item)}>Save</button>
+      </Link>
     </div>
   );
 }

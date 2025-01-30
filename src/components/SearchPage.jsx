@@ -5,7 +5,6 @@ import ItemsList from "../components/ItemsList";
 function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResults, onSave,}) {
   const [filters, setFilters] = useState({});
   
-  
   const fetchItems = async (query, filters) => {
     const url = `https://collection.sciencemuseumgroup.org.uk/search?q=${encodeURIComponent(query)}`;
   
@@ -18,9 +17,6 @@ function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResult
         const data = await response.json();
         let items = data.data || [];
   
-        // console.log("API Response:", items); // Debugging
-  
-        // If a type is selected and it's not empty, filter items
         if (filters.type && filters.type !== "") {
           items = items.filter((item) => item.type?.toLowerCase() === filters.type.toLowerCase());
         }

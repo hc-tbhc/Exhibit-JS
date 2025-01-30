@@ -10,35 +10,35 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px;
+  padding: 2.2em;
   background-color: black;
   position: relative;
 }
 
 h1 {
   margin: 0;
-  font-size: 3.5rem;
+  font-size: 3.8em;
   text-align: center;
   color: white;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 14px;
+  top: 0.8rem;
 }
 
 nav {
   position: absolute;
-  right: 20px;
-  top: 25px;
+  right: 0.8rem;
+  top: 1.6rem;
 }
 
 nav a {
+  border-radius: 5px;
   color: white;
   text-decoration: none;
-  padding: 10px;
-  background-color: #444;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  padding: 0.6rem;
+  background-color: #202020;
+  transition: background-color 0.2s;
 }
 
 nav a:hover {
@@ -56,49 +56,51 @@ a:visited {
 
 .search-input {
   width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 15px;
-  border-radius: 30px;
-  border: 1px solid #ddd;
+  max-width: 60rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 35px;
+  border: 0.1rem solid #ddd;
   font-size: 1.1rem;
   outline: none;
   display: block;
   background-color: #222;
   color: white;
-  margin-top: 20px;
+  margin-top: 1.2rem;
 }
 
 .filter-form {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
 .filter-form select {
-  padding: 5px;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border-radius: 8px;
   background-color: #222;
   color: white;
-  border: 1px solid #ddd;
+  border: 0.1rem solid #ddd;
 }
 
 .items-list {
   display: flex;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 1rem;
   overflow-x: auto;
-  padding: 20px;
+  margin-top: 1rem;
+  padding: 1rem;
   flex-wrap: nowrap;
 }
 
 .item-card {
-  background-color: #333;
+  background-color: #202020;
   color: white;
-  padding: 15px;
-  border-radius: 10px;
-  width: 250px;
-  display: flex;
+  padding: 0.1rem;
+  border-radius: 16px;
+  width: 18em;
+  height:36rem;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -106,19 +108,24 @@ a:visited {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.8s;
+  transition: box-shadow 0.5s;
+}
+
+.item-card button {
+  align-items: bottg;
 }
 
 .item-card:hover {
-  box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0.8em rgba(255, 255, 255, 0.8);
 }
 
 .item-card h3 {
-  margin: 10px 0;
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
 }
 
 .item-card p {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
@@ -134,15 +141,15 @@ a:visited {
 .item-thumbnail {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  /* border-top-radius: 8px; */
 }
 
 button {
-  background-color: #444;
+  background-color: #202020;
   color: white;
   border: none;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
