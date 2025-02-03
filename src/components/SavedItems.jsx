@@ -1,6 +1,6 @@
 import React from "react";
 
-function SavedItemsPage({ items, onRemove }) {
+function SavedItems({ items, onRemove }) {
   return (
     <div>
       <h2>Saved Items</h2>
@@ -21,4 +21,4 @@ function SavedItemsPage({ items, onRemove }) {
   );
 };
 
-export default SavedItemsPage;
+export default SavedItems;

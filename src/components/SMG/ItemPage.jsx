@@ -1,6 +1,6 @@
 import { useLocation } from "react-router";
-import img_not_found from "../assets/img-not-found.jpg";
-import '../ItemPage.css' 
+import img_not_found from "../../assets/img-not-found.jpg";
+import '../../ItemPage.css' 
 
 function ItemPage() {
   const { state } = useLocation();
@@ -18,7 +18,7 @@ function ItemPage() {
   const description =
     typeof item.attributes.description[0]?.value === "string"
       ? item.attributes.description[0].value
-      : "Description not found";
+      : null;
 
   const maker =
     typeof item.attributes.creation?.maker?.[0].summary.title === "string"

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SearchForm from "../components/SearchForm";
-import ItemsList from "../components/ItemsList";
+import SearchForm from "../SearchForm";
+import ItemsList from "./ItemsList";
 
 function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResults, onSave,}) {
   const [filters, setFilters] = useState({});

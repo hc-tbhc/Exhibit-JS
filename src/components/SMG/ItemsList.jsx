@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router";
-import img_not_found from "../assets/img-not-found.jpg";
+import img_not_found from "../../assets/img-not-found.jpg";
 
 function ItemsList({ items, onSave }) {
   return (
     <div className="items-list">
       {items ? (
         items.map((item) => (
-          <ItemCard key={item.id} item={item} onSave={onSave} />
+          <ItemCard key={item.id || item.objectID} item={item} onSave={onSave} />
         ))
       ) : (
         <h2>No items found</h2>
@@ -42,8 +42,8 @@ function ItemCard({ item, onSave }) {
         )}
         <h3>{name}</h3>
       <p>{description}</p>
-      <button onClick={() => onSave(item)}>Save</button>
       </Link>
+      <button onClick={() => onSave(item)}>Save</button>
     </div>
   );
 }
