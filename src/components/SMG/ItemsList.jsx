@@ -30,7 +30,7 @@ function ItemCard({ item, onSave }) {
 
   return (
     <div className="item-card">
-      <Link to={`/item/${item.id}`} state={{ item }}>
+      <Link to={`/SMG/item/${item.id}`} state={{ item }}>
         {thumbnail ? (
           <img
             src={"https://coimages.sciencemuseumgroup.org.uk/" + thumbnail}

@@ -23,7 +23,7 @@ function ItemCard({ item, onSave }) {
 
   return (
     <div className="item-card">
-      <Link to={`/item/${item.objectID}`} state={{ item }}>
+      <Link to={`/MET/item/${item.objectID}`} state={{ item }}>
         {thumbnail ? (
           <img src={thumbnail} alt={name} className="item-thumbnail" />
         ) : (

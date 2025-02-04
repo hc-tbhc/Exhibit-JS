@@ -50,7 +50,7 @@ function App() {
               />
             }
           />
-          <Route path="/item/:id" element={<ItemPageSMG />} />
+          <Route path="/SMG/item/:id" element={<ItemPageSMG />} />
           <Route
             path="/MET"
             element={
@@ -63,7 +63,7 @@ function App() {
               />
             }
           />
-          <Route path="/item/:id" element={<ItemPageMET />} />
+          <Route path="/MET/item/:id" element={<ItemPageMET />} />
           <Route path="/saved" element={<SavedItems items={savedItems} onRemove={removeSavedItem} />} />
         </Routes>
       </main>
