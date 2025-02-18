@@ -1,4 +1,4 @@
-Exhibit JS
+Link to site: https://exhibit-js.onrender.com
 
 Exhibit JS is a React-based web app that allows users to explore and view artifacts and collections from two renowned museums: the Science Museum Group (SMG) and The Metropolitan Museum of Art (The MET). Users can search, filter, view details of items, and save their favorite artifacts for later reference.
 
