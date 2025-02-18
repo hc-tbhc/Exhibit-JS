@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SearchForm from "../SearchForm";
 import ItemsList from "./ItemsList";
+import SMGLogo from "../../assets/SMGLogoColour.jpg";
 
 function SearchPage({searchQuery, setSearchQuery, searchResults, setSearchResults, onSave,}) {
   const [filters, setFilters] = useState({});

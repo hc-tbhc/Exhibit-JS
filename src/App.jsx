@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router";
 import SearchPageSMG from "./components/SMG/SearchPage";
 import SearchPageMET from "./components/MET/SearchPage";
-import SavedItems  from "./components/SavedItems"
+import SavedItems from "./components/SavedItems";
 import ItemPageSMG from "./components/SMG/ItemPage";
 import ItemPageMET from "./components/MET/ItemPage";
 import LandingPage from "./LandingPage";
@@ -12,32 +12,45 @@ function App() {
   const [savedItems, setSavedItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  
+  const [notification, setNotification] = useState(null);
+
+  const resetSearchResults = () => {
+    setSearchResults([]);
+  };
+
+  const showNotification = (message) => {
+    setNotification(message);
+    setTimeout(() => setNotification(null), 2000);
+  };
+
   const saveItem = (item) => {
-    if (!savedItems.some((saved) => saved.id === item.id)) {
-      setSavedItems((prev) => [...prev, item]);
+    const itemId = item.id || item.objectID; 
+    if (!savedItems.some((saved) => saved.id === itemId)) {
+      setSavedItems((prev) => [...prev, { ...item, id: itemId }]);
+      showNotification("Saved");
     }
   };
 
   const removeSavedItem = (id) => {
     setSavedItems((prev) => prev.filter((item) => item.id !== id));
+    showNotification("Removed from library");
   };
 
   return (
     <Router>
       <header>
         <h1>
-          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-            Exhibit JS
-          </Link>
+          <Link to="/" className="exhibit">Exhibit </Link>
+          <Link to="/" className="js">JS</Link>
         </h1>
-      <nav>
-        <Link to="/saved">Saved Items</Link>
-      </nav>
+        <nav>
+          <Link to="/saved">Library</Link>
+        </nav>
       </header>
       <main>
+        {notification && <div className="notification">{notification}</div>}
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage resetSearchResults={resetSearchResults} />} />
           <Route
             path="/SMG"
             element={
@@ -50,7 +63,7 @@ function App() {
               />
             }
           />
-          <Route path="/SMG/item/:id" element={<ItemPageSMG />} />
+          <Route path="/SMG/item/:id" element={<ItemPageSMG onSave={saveItem} />} />
           <Route
             path="/MET"
             element={
@@ -63,7 +76,7 @@ function App() {
               />
             }
           />
-          <Route path="/MET/item/:id" element={<ItemPageMET />} />
+          <Route path="/MET/item/:id" element={<ItemPageMET onSave={saveItem} />} />
           <Route path="/saved" element={<SavedItems items={savedItems} onRemove={removeSavedItem} />} />
         </Routes>
       </main>
