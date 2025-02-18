@@ -130,7 +130,7 @@ function ItemPage({ onSave }) {
         ) : (
           <img src={img_not_found} alt="No image found" className="item-image"/>
         )}
-        <h3>{name}</h3>
+        <h2>{name}</h2>
         <div className="description">
           <p>{description}</p>
         </div>
