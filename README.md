@@ -48,13 +48,14 @@ How to use:
 - Browse the Collections: On the home page, you can choose between the Science Museum Group's collection and The MET's collection by clicking the respective buttons.
 - Search: Use the search bar to find specific items by title or category.
 - Filter: Apply filters to narrow down the search results.
-- View Item Details: Click on an item to view its detailed information, including images, description, and other metadata.
-- Save Items: Click the "Save" button to add an item to your personal collection for later reference.
+- View item details: Click on an item to view its detailed information, including images, description, and other metadata.
+- Save items: Click the "Save" button to add an item to your library. To view your saved items, click the 'Library' button at the top-right of the page. To remove an item from the library, click the 'remove' button on card of the item you want to 
+  remove.
+- Switch between collections: Click 'Exhibit JS' at the top of the page to navigate back to the landing page, where you can choose between browsing Science Museum Group's collection, or The MET's.
 
 Improvements to be made:
-- User Authentication: Implement user accounts to save favorites across sessions.
-- Enhanced Filtering: Allow users to filter by more specific attributes, such as date, material, or region.
-- Pagination: Implement pagination for large datasets to improve performance.
+- User authentication: Implement user accounts to save favorites across sessions.
+- Enhanced filtering: Allow users to filter by more specific attributes, such as date, material, or region.
 
 License
 This project is licensed under the MIT License.
